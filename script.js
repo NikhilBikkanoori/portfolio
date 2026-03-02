@@ -225,7 +225,7 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
         static lastSoundTime = 0;
         static canPlaySound() {
             const now = Date.now();
-            return now - Particle.lastSoundTime > 300; // Increased cooldown for longer laser asset length
+            return now - Particle.lastSoundTime > 2000; // 2 second cooldown to prevent constant sound
         }
         static resetSoundCooldown() {
             Particle.lastSoundTime = Date.now();
@@ -254,11 +254,11 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
                 this.vx -= dx * force * 0.06;
                 this.vy -= dy * force * 0.06;
 
-                // Reactive Audio (Throttled)
-                if (typeof AudioManager !== 'undefined' && Particle.canPlaySound()) {
-                    AudioManager.playParticleDisturb();
-                    Particle.resetSoundCooldown();
-                }
+                // Reactive Audio (Disabled)
+                // if (typeof AudioManager !== 'undefined' && Particle.canPlaySound()) {
+                //     AudioManager.playParticleDisturb();
+                //     Particle.resetSoundCooldown();
+                // }
             }
 
             this.x += this.vx;
