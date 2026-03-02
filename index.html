@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikhil Bikkanoori — Full Stack Developer</title>
+    <meta name="description"
+        content="Portfolio of Nikhil Bikkanoori — Full Stack Developer skilled in React, TypeScript, Java and more. Building impactful digital experiences." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ─── NAVBAR ─────────────────────────────────── -->
+    <nav class="navbar" id="navbar">
+        <!-- Improved SVG Logo -->
+        <a href="#hero" class="nav-logo" id="navLogo" aria-label="NB">
+            NB<span class="dot" style="color:var(--accent)">.</span>
+        </a>
+        <div class="nav-controls">
+            <!-- Audio Toggle -->
+            <button id="audioToggle" class="audio-btn" title="Toggle sound" aria-label="Toggle sound">
+                <i class="fa-solid fa-volume-high icon-on"></i>
+                <i class="fa-solid fa-volume-xmark icon-off"></i>
+            </button>
+
+            <!-- Theme toggle only – nav handled by FAB -->
+            <label class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+                <input type="checkbox" id="themeCheck" />
+                <span class="toggle-track">
+                    <span class="toggle-thumb">
+                        <i class="fa-solid fa-moon icon-moon"></i>
+                        <i class="fa-solid fa-sun icon-sun"></i>
+                    </span>
+                </span>
+            </label>
+        </div>
+    </nav>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────── -->
+    <section class="hero" id="hero">
+        <!-- Flow Field Canvas Background -->
+        <canvas id="flowCanvas" class="flow-canvas"></canvas>
+        <!-- Grid overlay -->
+        <div class="hero-grid"></div>
+
+        <div class="hero-content reveal">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-name">
+                <span class="name-line">Nikhil</span>
+                <span class="name-line accent">Bikkanoori</span>
+            </h1>
+            <div class="hero-role">
+                <span class="role-prefix">I build </span>
+                <span class="typed-text" id="typedText"></span>
+                <span class="cursor">|</span>
+            </div>
+            <p class="hero-sub">
+                Full Stack Developer &amp; DSA Enthusiast — crafting clean code and pixel-perfect interfaces.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+            </div>
+        </div>
+
+        <!-- 3D floating card -->
+        <div class="hero-card-wrap" id="heroCard">
+            <div class="hero-card tilt-card">
+                <div class="card-inner">
+                    <div class="card-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-inner">NB</div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Nikhil Bikkanoori</h3>
+                        <p>Full Stack Developer</p>
+                    </div>
+                    <div class="card-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Java</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Projects</span></div>
+                        <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Languages</span>
+                        </div>
+                        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Curiosity</span></div>
+                    </div>
+                </div>
+                <div class="card-shine"></div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">01 / About</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-visual reveal">
+                    <!-- CODE ART — swap the entire .code-art div with an <img> tag when you have a photo -->
+                    <!-- PHOTO_PLACEHOLDER: replace below div with: <img src="your-photo.jpg" alt="Nikhil Bikkanoori" class="about-photo" /> -->
+                    <div class="code-art tilt-card">
+                        <div class="card-shine"></div>
+                        <div class="code-art-inner">
+                            <div class="ca-bar">
+                                <span class="ca-dot ca-red"></span>
+                                <span class="ca-dot ca-yellow"></span>
+                                <span class="ca-dot ca-green"></span>
+                                <span class="ca-filename">nikhil.java</span>
+                            </div>
+                            <div class="ca-body">
+                                <pre class="ca-code"><span class="ca-kw">public class</span> <span class="ca-cls">Nikhil</span> {
+
+  <span class="ca-kw">private final</span> String role =
+    <span class="ca-str">"Full Stack Dev"</span>;
+
+  <span class="ca-kw">private</span> String[] wins = {
+    <span class="ca-str">"SIH 2025 Finalist"</span>,
+    <span class="ca-str">"Paid DSA Mentor"</span>,
+    <span class="ca-str">"College PS Winner"</span>
+  };
+
+  <span class="ca-kw">public</span> String passion() {
+    <span class="ca-kw">return</span> <span class="ca-str">"Build. Learn. Lead."</span>;
+  }
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cycling achievement badge -->
+                    <div class="about-badge" id="achieveBadge">
+                        <i class="fa-solid fa-trophy" id="achieveIcon"></i>
+                        <span id="achieveText">SIH 2025 Finalist</span>
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <p class="about-lead">
+                        I'm a <strong>Full Stack Developer</strong> with strong expertise in Java and web development
+                        &mdash;
+                        driven by a passion for building things that matter.
+                    </p>
+                    <p class="about-body">
+                        I was a <strong>nationwide finalist in SIH 2025</strong>, where I successfully led my team under
+                        pressure. I mentor juniors in DSA and was <strong>selected as a paid mentor by Smart
+                            Interviews</strong>.
+                        On top of that, I've secured <strong>first place</strong> at multiple college-level
+                        problem-solving competitions.
+                    </p>
+                    <div class="about-facts">
+                        <div class="fact reveal">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>India</span>
+                        </div>
+                        <div class="fact reveal">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Computer Science</span>
+                        </div>
+                        <div class="fact reveal">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <span>Paid DSA Mentor</span>
+                        </div>
+                        <div class="fact reveal">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>Hackathon Winner</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary about-resume" download>
+                        <i class="fa-solid fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SKILLS ─────────────────────────────────────────────────── -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">02 / Skills</span>
+                <h2 class="section-title">My Tech Stack</h2>
+            </div>
+            <div class="skills-grid">
+
+                <div class="skill-category reveal">
+                    <h3 class="category-title"><i class="fa-solid fa-palette"></i> Frontend</h3>
+                    <div class="skill-pills">
+                        <span class="pill">HTML5</span>
+                        <span class="pill">CSS3</span>
+                        <span class="pill">JavaScript</span>
+                        <span class="pill">TypeScript</span>
+                        <span class="pill">React</span>
+                        <span class="pill">Next.js</span>
+                        <span class="pill">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3 class="category-title"><i class="fa-solid fa-server"></i> Backend</h3>
+                    <div class="skill-pills">
+                        <span class="pill">Node.js</span>
+                        <span class="pill">Express</span>
+                        <span class="pill">REST APIs</span>
+                        <span class="pill">SQL</span>
+                        <span class="pill">MongoDB</span>
+                        <span class="pill">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3 class="category-title"><i class="fa-solid fa-code"></i> Languages &amp; DSA</h3>
+                    <div class="skill-pills">
+                        <span class="pill">Java</span>
+                        <span class="pill">Data Structures</span>
+                        <span class="pill">Algorithms</span>
+                        <span class="pill">LeetCode</span>
+                        <span class="pill">Smart Interviews</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3 class="category-title"><i class="fa-solid fa-wrench"></i> Tools &amp; DevOps</h3>
+                    <div class="skill-pills">
+                        <span class="pill">Git</span>
+                        <span class="pill">GitHub</span>
+                        <span class="pill">VS Code</span>
+                        <span class="pill">Figma</span>
+                        <span class="pill">Docker</span>
+                        <span class="pill">Vercel</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PROJECTS ───────────────────────────────────────────────── -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">03 / Projects</span>
+                <h2 class="section-title">What I've Built</h2>
+                <p class="section-sub">Four major projects — details coming soon.</p>
+            </div>
+            <div class="projects-scroll-wrap" id="projectsScrollWrap">
+                <div class="projects-grid">
+
+                    <div class="project-card tilt-card reveal" data-index="1">
+                        <div class="card-shine"></div>
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Project Alpha</h3>
+                            <p class="project-desc">A full-stack application coming soon. Stay tuned for details about
+                                this
+                                exciting project.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="project-link" title="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+
+                    <div class="project-card tilt-card reveal" data-index="2">
+                        <div class="card-shine"></div>
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Project Beta</h3>
+                            <p class="project-desc">An innovative solution leveraging modern web technologies. Details
+                                will
+                                be updated soon.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Express</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="project-link" title="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+
+                    <div class="project-card tilt-card reveal" data-index="3">
+                        <div class="card-shine"></div>
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Project Gamma</h3>
+                            <p class="project-desc">A data-driven application built for performance and scalability.
+                                Coming
+                                soon.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Spring Boot</span>
+                                <span class="tech-tag">SQL</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="project-link" title="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+
+                    <div class="project-card tilt-card reveal" data-index="4">
+                        <div class="card-shine"></div>
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Project Delta</h3>
+                            <p class="project-desc">An experimental project pushing the boundaries of what's possible on
+                                the
+                                web.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">React</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="project-link" title="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    <!-- ─── CODING PROFILES ─────────────────────────────────── -->
+    <section class="section coding" id="coding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">04 / Coding</span>
+                <h2 class="section-title">Problem Solving</h2>
+                <p class="section-sub">Where I sharpen my algorithmic thinking — daily.</p>
+            </div>
+            <div class="coding-grid">
+                <!-- LeetCode -->
+                <div class="coding-card reveal">
+                    <div class="coding-card-inner">
+                        <div class="coding-card-back">
+                            <div class="coding-back-content">
+                                <i class="fa-solid fa-code"></i>
+                                <strong>LeetCode</strong>
+                                <p style="font-size: 0.7rem; color: var(--text-dim);">Hover for Stats</p>
+                            </div>
+                        </div>
+                        <div class="coding-card-front">
+                            <div class="coding-front-visual">
+                                <div class="circle" id="blob-bottom"></div>
+                                <div class="circle" id="blob-right"></div>
+                            </div>
+                            <div class="coding-front-content">
+                                <small class="coding-badge">Problem Solving</small>
+                                <div class="coding-details">
+                                    <div class="coding-title-row">
+                                        <h3>LeetCode</h3>
+                                        <i class="fa-solid fa-code coding-platform-icon-mini"></i>
+                                    </div>
+                                    <div class="coding-stats-mini">
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">250+</span>
+                                            <span class="cms-label">Problems</span>
+                                        </div>
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">Top 15%</span>
+                                            <span class="cms-label">Global</span>
+                                        </div>
+                                    </div>
+                                    <div class="coding-footer">
+                                        <span class="card-footer">@your-username</span>
+                                        <a href="https://leetcode.com/" target="_blank" class="coding-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CodeChef -->
+                <div class="coding-card reveal">
+                    <div class="coding-card-inner">
+                        <div class="coding-card-back">
+                            <div class="coding-back-content">
+                                <i class="fa-solid fa-utensils"></i>
+                                <strong>CodeChef</strong>
+                                <p style="font-size: 0.7rem; color: var(--text-dim);">Hover for Stats</p>
+                            </div>
+                        </div>
+                        <div class="coding-card-front">
+                            <div class="coding-front-visual">
+                                <div class="circle" id="blob-bottom"></div>
+                                <div class="circle" id="blob-right"></div>
+                            </div>
+                            <div class="coding-front-content">
+                                <small class="coding-badge">Competitive</small>
+                                <div class="coding-details">
+                                    <div class="coding-title-row">
+                                        <h3>CodeChef</h3>
+                                        <i class="fa-solid fa-utensils coding-platform-icon-mini"></i>
+                                    </div>
+                                    <div class="coding-stats-mini">
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">3★</span>
+                                            <span class="cms-label">Rating</span>
+                                        </div>
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">Div 2</span>
+                                            <span class="cms-label">Division</span>
+                                        </div>
+                                    </div>
+                                    <div class="coding-footer">
+                                        <span class="card-footer">@your-username</span>
+                                        <a href="https://www.codechef.com/" target="_blank" class="coding-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HackerRank -->
+                <div class="coding-card reveal">
+                    <div class="coding-card-inner">
+                        <div class="coding-card-back">
+                            <div class="coding-back-content">
+                                <i class="fa-brands fa-hackerrank"></i>
+                                <strong>HackerRank</strong>
+                                <p style="font-size: 0.7rem; color: var(--text-dim);">Hover for Stats</p>
+                            </div>
+                        </div>
+                        <div class="coding-card-front">
+                            <div class="coding-front-visual">
+                                <div class="circle" id="blob-bottom"></div>
+                                <div class="circle" id="blob-right"></div>
+                            </div>
+                            <div class="coding-front-content">
+                                <small class="coding-badge">Skill Badges</small>
+                                <div class="coding-details">
+                                    <div class="coding-title-row">
+                                        <h3>HackerRank</h3>
+                                        <i class="fa-brands fa-hackerrank coding-platform-icon-mini"></i>
+                                    </div>
+                                    <div class="coding-stats-mini">
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">5★</span>
+                                            <span class="cms-label">Java & DSA</span>
+                                        </div>
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">Gold</span>
+                                            <span class="cms-label">Badge</span>
+                                        </div>
+                                    </div>
+                                    <div class="coding-footer">
+                                        <span class="card-footer">@your-username</span>
+                                        <a href="https://www.hackerrank.com/" target="_blank" class="coding-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Codeforces -->
+                <div class="coding-card reveal">
+                    <div class="coding-card-inner">
+                        <div class="coding-card-back">
+                            <div class="coding-back-content">
+                                <i class="fa-solid fa-trophy"></i>
+                                <strong>Codeforces</strong>
+                                <p style="font-size: 0.7rem; color: var(--text-dim);">Hover for Stats</p>
+                            </div>
+                        </div>
+                        <div class="coding-card-front">
+                            <div class="coding-front-visual">
+                                <div class="circle" id="blob-bottom"></div>
+                                <div class="circle" id="blob-right"></div>
+                            </div>
+                            <div class="coding-front-content">
+                                <small class="coding-badge">Contests</small>
+                                <div class="coding-details">
+                                    <div class="coding-title-row">
+                                        <h3>Codeforces</h3>
+                                        <i class="fa-solid fa-trophy coding-platform-icon-mini"></i>
+                                    </div>
+                                    <div class="coding-stats-mini">
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">—</span>
+                                            <span class="cms-label">Rating</span>
+                                        </div>
+                                        <div class="coding-mini-stat">
+                                            <span class="cms-val">Active</span>
+                                            <span class="cms-label">Status</span>
+                                        </div>
+                                    </div>
+                                    <div class="coding-footer">
+                                        <span class="card-footer">@your-username</span>
+                                        <a href="https://codeforces.com/" target="_blank" class="coding-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CONTACT ──────────────────────────────────────────── -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">04 / Contact</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-sub">Have a project in mind? Let's build something great together.</p>
+            </div>
+
+            <!-- Social Links Row -->
+            <ul class="example-2 reveal" style="margin-top: 30px; display: flex; flex-direction: row; gap: 20px;">
+                <li class="icon-content">
+                    <a href="https://linkedin.com/in/nikhilbikkanoori" aria-label="LinkedIn" data-social="linkedin"
+                        target="_blank" rel="noopener">
+                        <div class="filled"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-linkedin" viewBox="0 0 16 16" xml:space="preserve">
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="icon-content">
+                    <a href="https://github.com/nikhilbikkanoori" aria-label="GitHub" data-social="github"
+                        target="_blank" rel="noopener">
+                        <div class="filled"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-github" viewBox="0 0 16 16" xml:space="preserve">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="icon-content">
+                    <a href="mailto:nikhil.bikkanoori@gmail.com" aria-label="Email" data-social="email">
+                        <div class="filled"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-envelope-fill" viewBox="0 0 16 16" xml:space="preserve">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Secure Message Gateway -->
+            <div class="smg-wrap reveal">
+                <div class="smg" id="smg">
+                    <!-- Corner decorators -->
+                    <span class="smg-corner smg-corner--tl">+</span>
+                    <span class="smg-corner smg-corner--tr">+</span>
+                    <span class="smg-corner smg-corner--bl">+</span>
+                    <span class="smg-corner smg-corner--br">+</span>
+                    <!-- Grid bg -->
+                    <div class="smg-grid"></div>
+
+                    <div class="smg-inner">
+                        <!-- Header -->
+                        <div class="smg-header">
+                            <h3 class="smg-title">
+                                <span class="smg-dot"></span>
+                                <span class="smg-label">Contact</span>
+                            </h3>
+                            <p class="smg-sub">Send a <span class="smg-green">Message</span></p>
+                        </div>
+
+                        <!-- Form -->
+                        <form class="smg-form" id="smgForm" novalidate>
+                            <div class="smg-row">
+                                <div class="smg-field-group">
+                                    <div class="smg-field">
+                                        <i class="fa-solid fa-user smg-field-icon"></i>
+                                        <input type="text" id="smgName" placeholder="YOUR NAME >>" autocomplete="off"
+                                            required />
+                                        <span class="smg-field-corner smg-fc-tl"></span>
+                                        <span class="smg-field-corner smg-fc-br"></span>
+                                    </div>
+                                    <div class="smg-field">
+                                        <i class="fa-solid fa-at smg-field-icon"></i>
+                                        <input type="email" id="smgEmail" placeholder="YOUR EMAIL >>" autocomplete="off"
+                                            required />
+                                        <span class="smg-field-corner smg-fc-tl"></span>
+                                        <span class="smg-field-corner smg-fc-br"></span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="smg-btn" id="smgBtn">
+                                    <i class="fa-solid fa-paper-plane smg-btn-icon"></i>
+                                    <span id="smgBtnText">SEND</span>
+                                </button>
+                            </div>
+                            <div class="smg-field smg-field--msg">
+                                <i class="fa-solid fa-terminal smg-field-icon"></i>
+                                <input type="text" id="smgMsg" placeholder="ENTER DIRECTIVE >>" autocomplete="off"
+                                    required />
+                                <span class="smg-field-corner smg-fc-tl"></span>
+                                <span class="smg-field-corner smg-fc-br"></span>
+                            </div>
+                        </form>
+
+                        <!-- Status line -->
+                        <div class="smg-status">
+                            <span class="smg-status-left" id="smgStatus">
+                                Status: <span class="smg-ready" id="smgStatusText">Ready</span>
+                            </span>
+                            <span class="smg-status-right">SECURE_ID: 0xNB2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─────────────────────────────────── -->
+    <footer class="footer">
+        <div class="footer-glow-line"></div>
+        <div class="container footer-inner">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a href="#hero" class="footer-logo">NB<span class="footer-dot">.</span></a>
+                <p class="footer-tagline">Building things that matter.</p>
+                <p class="footer-stack">Vanilla JS · Java · React · TypeScript</p>
+            </div>
+            <!-- Nav -->
+            <div class="footer-nav">
+                <span class="footer-nav-title">Navigate</span>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#coding">Coding</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <!-- Social -->
+            <div class="footer-social">
+                <span class="footer-nav-title">Find Me</span>
+                <a href="https://github.com/" target="_blank" rel="noopener" class="fsocial-link">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener" class="fsocial-link">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://leetcode.com/" target="_blank" rel="noopener" class="fsocial-link">
+                    <i class="fa-solid fa-code"></i> LeetCode
+                </a>
+                <a href="mailto:nikhil@example.com" class="fsocial-link">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Nikhil Bikkanoori · All rights reserved</span>
+        </div>
+    </footer>
+
+    <!-- ─── FLOATING CIRCLE NAV ──────────────────── -->
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Navigate">
+            <i class="fa-solid fa-compass fab-icon-open"></i>
+        </button>
+        <div class="fab-items" id="fabItems">
+            <a href="#hero" class="fab-item" data-label="Home" style="--i:0"><i class="fa-solid fa-house"></i></a>
+            <a href="#about" class="fab-item" data-label="About" style="--i:1"><i class="fa-solid fa-user"></i></a>
+            <a href="#skills" class="fab-item" data-label="Skills" style="--i:2"><i
+                    class="fa-solid fa-laptop-code"></i></a>
+            <a href="#projects" class="fab-item" data-label="Projects" style="--i:3"><i
+                    class="fa-solid fa-folder-open"></i></a>
+            <a href="#coding" class="fab-item" data-label="Coding" style="--i:4"><i
+                    class="fa-solid fa-terminal"></i></a>
+            <a href="#contact" class="fab-item" data-label="Contact" style="--i:5"><i
+                    class="fa-solid fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
