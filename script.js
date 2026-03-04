@@ -225,7 +225,7 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
         static lastSoundTime = 0;
         static canPlaySound() {
             const now = Date.now();
-            return now - Particle.lastSoundTime > 2000; // 2 second cooldown to prevent constant sound
+            return now - Particle.lastSoundTime > 300; // Increased cooldown for longer laser asset length
         }
         static resetSoundCooldown() {
             Particle.lastSoundTime = Date.now();
@@ -254,11 +254,11 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
                 this.vx -= dx * force * 0.06;
                 this.vy -= dy * force * 0.06;
 
-                // Reactive Audio (Disabled)
-                // if (typeof AudioManager !== 'undefined' && Particle.canPlaySound()) {
-                //     AudioManager.playParticleDisturb();
-                //     Particle.resetSoundCooldown();
-                // }
+                // Reactive Audio (Throttled)
+                if (typeof AudioManager !== 'undefined' && Particle.canPlaySound()) {
+                    AudioManager.playParticleDisturb();
+                    Particle.resetSoundCooldown();
+                }
             }
 
             this.x += this.vx;
@@ -767,23 +767,23 @@ const AudioManager = (function () {
 })();
 
 /* ══════════════════════════════════════════════════
-   21. DYNAMIC BACKGROUND AUDIO
+   21. DYNAMIC BACKGROUND AUDIO (Disabled)
    ══════════════════════════════════════════════════ */
-(function initAdvancedAudio() {
-    // Background Move Sound (Throttled)
-    let lastMove = 0;
-    document.addEventListener('mousemove', (e) => {
-        const now = Date.now();
-        if (now - lastMove < 300) return; // Throttle to 300ms
+// (function initAdvancedAudio() {
+//     // Background Move Sound (Throttled)
+//     let lastMove = 0;
+//     document.addEventListener('mousemove', (e) => {
+//         const now = Date.now();
+//         if (now - lastMove < 300) return; // Throttle to 300ms
 
-        // Only trigger if moving over empty-ish space (not too fast/constant)
-        if (Math.abs(e.movementX) + Math.abs(e.movementY) > 20) {
-            const vol = Math.min(0.015, (Math.abs(e.movementX) + Math.abs(e.movementY)) / 2000);
-            AudioManager.playWhoosh(vol);
-            lastMove = now;
-        }
-    });
-})();
+//         // Only trigger if moving over empty-ish space (not too fast/constant)
+//         if (Math.abs(e.movementX) + Math.abs(e.movementY) > 20) {
+//             const vol = Math.min(0.015, (Math.abs(e.movementX) + Math.abs(e.movementY)) / 2000);
+//             AudioManager.playWhoosh(vol);
+//             lastMove = now;
+//         }
+//     });
+// })();
 
 // Initial asset loading
 if (typeof AudioManager !== 'undefined') {
